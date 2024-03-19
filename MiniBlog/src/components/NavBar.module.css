@@ -1,0 +1,73 @@
+.navbar {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 2em;
+}
+
+.brand {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px; /* Altura inicial da linha */
+  border-bottom: 2px solid transparent; /* Inicia sem linha */
+  transition: padding-bottom 0.3s, border-color 0.3s;
+}
+
+.brand::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%; /* Começa com largura zero */
+  height: 2px;
+  background-color: #000; /* Cor da linha */
+  transition: width 0.4s; /* Transição da largura */
+}
+.brand:hover::after {
+  width: 100%; /* Expande a linha ao passar o mouse */
+}
+.brand span {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+
+.links_list {
+  display: flex;
+  list-style: none;
+  
+}
+
+.links_list li {
+  margin-right: 1em;
+
+}
+
+.links_list li a {
+  text-decoration: none;
+  color: #000;
+  position: relative; /* Adicionando posicionamento relativo ao link */
+}
+.links_list li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%; /* Começa com largura zero */
+  height: 2px;
+  background-color: #000; /* Cor da linha */
+  transition: width 0.4s; /* Transição da largura */
+}
+
+.links_list li a:hover::after {
+  width: 100%; /* Ajusta a largura da linha para o tamanho do link menos o padding */
+}
+
+.active {
+  background-color: #000;
+  color: #fff;
+}
