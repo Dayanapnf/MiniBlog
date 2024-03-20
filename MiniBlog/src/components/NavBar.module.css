@@ -55,19 +55,27 @@
 .links_list li a::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 0;
-  width: 0%; /* Começa com largura zero */
+  width: 0%; 
   height: 2px;
-  background-color: #000; /* Cor da linha */
-  transition: width 0.4s; /* Transição da largura */
+  background-color: transparent;
+  transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
+  opacity: 0;
 }
 
-.links_list li a:hover::after {
-  width: 100%; /* Ajusta a largura da linha para o tamanho do link menos o padding */
+.links_list li a:not(.active):hover::after {
+  width: 100%; 
+  opacity: 1; 
+  background-color: #000;
+}
+
+.links_list .active a::after {
+  width: 0; 
+  opacity: 0; 
 }
 
 .active {
-  background-color: #000;
-  color: #fff;
+  border-bottom: 2px solid #000; 
+  padding-bottom: 3px; 
 }
