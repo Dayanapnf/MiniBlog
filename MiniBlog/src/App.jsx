@@ -12,6 +12,8 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import CreatPost from './pages/CreatPost/CreatPost';
+import DashBoard from './pages/DashBoard/DashBoard';
 
 // components
 import NavBar from './components/NavBar';
@@ -42,9 +44,11 @@ function App() {
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/posts/creat" element={<CreatPost />} />
+              <Route path="/dashboard" element={<DashBoard />} />
+              <Route path="/about" element={<About />} />
             </Routes>
           </div>
           <Footer />
