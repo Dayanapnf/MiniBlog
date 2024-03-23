@@ -44,7 +44,10 @@ function App() {
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
+              <Route
+                path="/login"
+                element={!user ? <Login /> : <Navigate to="/" />}
+              />
               <Route path="/register" element={<Register />} />
               <Route path="/posts/creat" element={<CreatPost />} />
               <Route path="/dashboard" element={<DashBoard />} />
