@@ -61,6 +61,7 @@ function App() {
                 element={user ? <DashBoard /> : <Navigate to="/login" />}
               />
               <Route path="/about" element={<About />} />
+            
             </Routes>
           </div>
           <Footer />
