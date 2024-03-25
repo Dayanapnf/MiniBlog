@@ -1,30 +1,89 @@
-import { useNavigate } from 'react-router-dom';
 import styles from './CreatPost.module.css';
-import { useAuthValue } from '../../Context/AuthContext';
+
 import { useState } from 'react';
+import { useInsertDocument } from '../../hooks/useInsertDocument';
+import { useNavigate } from 'react-router-dom';
+import { useAuthValue } from '../../Context/AuthContext';
 
 const CreatPost = () => {
   const [title, setTitle] = useState('');
   const [image, setImage] = useState('');
   const [body, setBody] = useState('');
   const [tags, setTags] = useState([]);
-  const [fomrError, setFormError] = useState('');
+  const [formError, setFormError] = useState('');
+
+  const { user } = useAuthValue();
+
+  const navigate = useNavigate();
+
+  const { insertDocument, response } = useInsertDocument('posts');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormError('');
+
+    // validate image
+    try {
+      new URL(image);
+    } catch (error) {
+      setFormError('A imagem precisa ser uma URL.');
+    }
+
+    // create tags array
+    const tagsArray = tags.split(',').map((tag) => tag.trim().toLowerCase());
+
+    // check values
+    if (!title || !image || !tags || !body) {
+      setFormError('Por favor, preencha todos os campos!');
+    }
+
+    console.log('Form data:', {
+      // Verificar se os dados do formulário estão corretos
+      title,
+      image,
+      body,
+      tags: tagsArray,
+      uid: user.uid,
+      createdBy: user.displayName,
+    });
+    console.log(tagsArray);
+
+    console.log({
+      title,
+      image,
+      body,
+      tags: tagsArray,
+      uid: user.uid,
+      createdBy: user.displayName,
+    });
+
+    if (formError) return;
+
+    insertDocument({
+      title,
+      image,
+      body,
+      tags: tagsArray,
+      uid: user.uid,
+      createdBy: user.displayName,
+    });
+
+    // redirect to home page
+    navigate('/');
   };
+
   return (
-    <div className={styles.creat_post}>
-      <h2>Criar Post</h2>
+    <div className={styles.create_post}>
+      <h2>Criar post</h2>
       <p>Escreva sobre o que quiser e compartilhe o seu conhecimento!</p>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           <span>Título:</span>
           <input
             type="text"
-            name="title"
+            name="text"
             required
-            placeholder="Pense em um bom título"
+            placeholder="Pense num bom título..."
             onChange={(e) => setTitle(e.target.value)}
             value={title}
           />
@@ -35,7 +94,7 @@ const CreatPost = () => {
             type="text"
             name="image"
             required
-            placeholder="Insira uma imagem que representa o seu post"
+            placeholder="Insira uma imagem que representa seu post"
             onChange={(e) => setImage(e.target.value)}
             value={image}
           />
@@ -45,7 +104,7 @@ const CreatPost = () => {
           <textarea
             name="body"
             required
-            placeholder="Insira o seu conteúdo"
+            placeholder="Insira o conteúdo do post"
             onChange={(e) => setBody(e.target.value)}
             value={body}
           ></textarea>
@@ -56,15 +115,20 @@ const CreatPost = () => {
             type="text"
             name="tags"
             required
-            placeholder="Insira as Tags separadas por vírgula"
+            placeholder="Insira as tags separadas por vírgula"
             onChange={(e) => setTags(e.target.value)}
             value={tags}
           />
         </label>
-        {/* <button className="btn" type="submit" disabled={loading}>
-          {loading ? 'Aguarde...' : 'Enviar'}
-        </button>
-        {error && <p className="error">{error}</p>} */}
+        {!response.loading && <button className="btn">Criar post!</button>}
+        {response.loading && (
+          <button className="btn" disabled>
+            Aguarde.. .
+          </button>
+        )}
+        {(response.error || formError) && (
+          <p className="error">{response.error || formError}</p>
+        )}
       </form>
     </div>
   );
