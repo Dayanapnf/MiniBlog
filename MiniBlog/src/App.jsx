@@ -14,6 +14,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import CreatPost from './pages/CreatPost/CreatPost';
 import DashBoard from './pages/DashBoard/DashBoard';
+import Search from './pages/Search/Search';
 
 // components
 import NavBar from './components/NavBar';
@@ -60,8 +61,8 @@ function App() {
                 path="/dashboard"
                 element={user ? <DashBoard /> : <Navigate to="/login" />}
               />
+              <Route path="/search" element={<Search />} />} />
               <Route path="/about" element={<About />} />
-            
             </Routes>
           </div>
           <Footer />
