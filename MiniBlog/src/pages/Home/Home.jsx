@@ -20,7 +20,7 @@ const Home = () => {
     <div className={styles.home}>
       <h1>Veja os nossos posts mais recentens</h1>
 
-      <form className={styles.search_form}>
+      <form className={styles.search_form} onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Ou busque por tags..."
