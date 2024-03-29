@@ -48,7 +48,7 @@ const NavBar = () => {
                 to="/posts/creat"
                 className={({ isActive }) => (isActive ? styles.active : '')}
               >
-                Post
+                Novo Post
               </NavLink>
             </li>
             <li>
