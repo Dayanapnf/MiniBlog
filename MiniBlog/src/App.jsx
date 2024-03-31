@@ -16,6 +16,8 @@ import CreatPost from './pages/CreatPost/CreatPost';
 import DashBoard from './pages/DashBoard/DashBoard';
 import Search from './pages/Search/Search';
 
+import Post from './pages/Post/Post';
+
 // components
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -63,6 +65,7 @@ function App() {
               />
               <Route path="/search" element={<Search />} />
               <Route path="/about" element={<About />} />
+              <Route path="/post:id" element={<Post />} />
             </Routes>
           </div>
           <Footer />
