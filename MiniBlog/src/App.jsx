@@ -65,7 +65,7 @@ function App() {
               />
               <Route path="/search" element={<Search />} />
               <Route path="/about" element={<About />} />
-              <Route path="/post:id" element={<Post />} />
+              <Route path="/posts/:id" element={<Post />} />
             </Routes>
           </div>
           <Footer />
