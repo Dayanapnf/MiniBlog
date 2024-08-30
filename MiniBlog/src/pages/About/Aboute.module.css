@@ -3,11 +3,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  
 }
 
 .about p {
   color: #aaa;
   margin-bottom: 2em;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 .about a{
   display: block;

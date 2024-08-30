@@ -3,13 +3,14 @@ import styles from './DashBoard.module.css';
 import { Link } from 'react-router-dom';
 import { useAuthValue } from '../../Context/AuthContext';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
-
+import { useDeleteDocument } from '../../hooks/useDeleteDocument';
 const DashBoard = () => {
   const { user } = useAuthValue();
   const uid = user.uid;
   const { documents: posts, loading } = useFetchDocuments('posts', null, uid);
 
-  const deleteDocument = (id) => {};
+  const { deleteDocument } = useDeleteDocument('posts');
+
   if (loading) {
     return <p>Carregando...</p>;
   }
@@ -28,8 +29,8 @@ const DashBoard = () => {
       ) : (
         <>
           <div className={styles.post_header}>
-            <span>Título</span>
-            <span>Ações</span>
+            <span>Título:</span>
+            <span>Ações:</span>
           </div>
           {posts &&
             posts.map((post) => (

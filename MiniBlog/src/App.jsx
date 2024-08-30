@@ -15,6 +15,8 @@ import Register from './pages/Register/Register';
 import CreatPost from './pages/CreatPost/CreatPost';
 import DashBoard from './pages/DashBoard/DashBoard';
 import Search from './pages/Search/Search';
+import EditPost from './pages/EditPost/EditPost';
+import EsqueceuSenha from './pages/Login/EsqueceuSenha';
 
 import Post from './pages/Post/Post';
 
@@ -51,9 +53,15 @@ function App() {
                 path="/login"
                 element={!user ? <Login /> : <Navigate to="/" />}
               />
+              <Route path="/esqueceu-senha" element={<EsqueceuSenha />} />
+
               <Route
                 path="/register"
                 element={!user ? <Register /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/posts/edit/:id"
+                element={user ? <EditPost /> : <Navigate to="/login" />}
               />
               <Route
                 path="/posts/creat"

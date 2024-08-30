@@ -75,7 +75,7 @@ textarea::placeholder {
 }
 
 .btn {
-  background-color: #0f730c;
+  background-color: #000;
   color: #fff;
   text-align: center;
   cursor: pointer;
@@ -89,7 +89,7 @@ textarea::placeholder {
 
 .btn.btn-dark {
   background-color: #000;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 .btn.btn-outline {
@@ -101,7 +101,7 @@ textarea::placeholder {
 }
 
 .btn:hover {
-  background-color:  #1a8918 ;
+  background-color:  #333 ;
   color: #fff;
 }
 

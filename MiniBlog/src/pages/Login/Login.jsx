@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuthentication } from '../../hooks/useAuthentication';
+import { Link } from 'react-router-dom';
 
 import styles from './Login.module.css';
 const Login = () => {
@@ -63,6 +64,9 @@ const Login = () => {
         </button>
         {error && <p className="error">{error}</p>}
       </form>
+      <p>
+        <Link to="/esqueceu-senha">Esqueceu sua senha?</Link>
+      </p>
     </div>
   );
 };

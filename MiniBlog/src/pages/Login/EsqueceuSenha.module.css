@@ -1,0 +1,10 @@
+.resetPassword{
+  text-align: center;
+}
+.resetPassword h2{
+  font-size: 2.2em;
+}
+
+.resetPassword p {
+  color: #aaa;
+}
