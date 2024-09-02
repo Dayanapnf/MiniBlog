@@ -39,8 +39,8 @@ Aqui estão as cores usadas no projeto:
 
 ### Visualização das Cores
 
-- ![Preto](https://via.placeholder.com/30x30/000000/000000?text=%20)
-- ![Branco](https://via.placeholder.com/30x30/FFFFFF/FFFFFF?text=%20)
-- ![Cinza](https://via.placeholder.com/30x30/6c757d/6c757d?text=%20)
-- ![Azul Claro](https://via.placeholder.com/30x30/edf3f6/edf3f6?text=%20)
+- ![Preto](https://via.placeholder.com/30x30/000000/000000?text=%20&border=1&border-color=%23CCCCCC)
+- ![Branco](https://via.placeholder.com/30x30/FFFFFF/FFFFFF?text=%20&border=1&border-color=%23CCCCCC)
+- ![Cinza](https://via.placeholder.com/30x30/6c757d/6c757d?text=%20&border=1&border-color=%23CCCCCC)
+- ![Azul Claro](https://via.placeholder.com/30x30/edf3f6/edf3f6?text=%20&border=1&border-color=%23CCCCCC)
 
