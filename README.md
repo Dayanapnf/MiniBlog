@@ -43,3 +43,9 @@ Aqui estão as cores usadas no projeto:
 - ![Branco](https://via.placeholder.com/30x30/FFFFFF/FFFFFF?text=%20&border=2&border-color=%23CCCCCC&border-width=2)
 - ![Cinza](https://via.placeholder.com/30x30/6c757d/6c757d?text=%20&border=1&border-color=%23CCCCCC)
 - ![Azul Claro](https://via.placeholder.com/30x30/edf3f6/edf3f6?text=%20&border=1&border-color=%23CCCCCC)
+
+  ## Telas
+
+  - ![Captura de tela 2024-09-02 153401](https://github.com/user-attachments/assets/ad307939-7ce0-4da6-bba0-75901178a40f)
+  - ![Captura de tela 2024-09-02 155822](https://github.com/user-attachments/assets/2c0d889a-9ff1-4d93-8933-12974b06952e)
+  - ![Captura de tela 2024-09-02 155831](https://github.com/user-attachments/assets/7cca6808-80ef-4176-8afb-672780668e5f)
