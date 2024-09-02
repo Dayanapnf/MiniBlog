@@ -2,6 +2,7 @@
   width: 240px;
   padding: 10px;
   background-color: #edf3f6;
+  margin-right: 5px ;
 }
 
 .tags-container {
@@ -30,15 +31,15 @@
 }
 
 .tag-large {
-  font-size: 2em;
-}
-
-.tag-medium {
   font-size: 1.5em;
 }
 
-.tag-small {
+.tag-medium {
   font-size: 1em;
+}
+
+.tag-small {
+  font-size: 0.8em;
 }
 h3{
   text-align: center;

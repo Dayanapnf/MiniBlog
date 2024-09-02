@@ -38,6 +38,13 @@
   margin-top: 0.5em;
   box-sizing: border-box;
 }
+.full_width_card textarea {
+  overflow: hidden; 
+  resize: none; 
+  min-height: 200px; 
+  max-height:500px;
+  transition: height 0.2s; 
+}
 
 .button_container {
   text-align: center; 

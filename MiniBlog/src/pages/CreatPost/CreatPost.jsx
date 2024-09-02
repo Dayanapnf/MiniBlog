@@ -21,6 +21,12 @@ const CreatePost = () => {
   const navigate = useNavigate();
   const { insertDocument, response } = useInsertDocument('posts');
 
+  const autoResizeTextarea = (e) => {
+    const textarea = e.target;
+    textarea.style.height = 'auto'; // Reseta a altura para recalcular
+    textarea.style.height = `${textarea.scrollHeight}px`; // Define a nova altura com base no conteúdo
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormError('');
@@ -146,7 +152,10 @@ const CreatePost = () => {
               name="body"
               required
               placeholder="Insira o conteúdo do post"
-              onChange={(e) => setBody(e.target.value)}
+              onChange={(e) => {
+                setBody(e.target.value);
+                autoResizeTextarea(e); // Chama a função de auto-ajuste
+              }}
               value={body}
               className={styles.textarea}
             ></textarea>

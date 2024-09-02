@@ -35,7 +35,8 @@ const PopularTags = ({ tags }) => {
       <h3>Tags Mais Usadas</h3>
       <div className={styles['tags-container']}>
         <ul className={styles.tags}>
-          {tags.map((tag, index) => {
+          {tags.slice(0, 10).map((tag, index) => {
+            // Exibindo apenas as 10 tags mais usadas
             const color = getRandomColor(); // Obtendo uma cor aleatória para cada tag
             return (
               <li
