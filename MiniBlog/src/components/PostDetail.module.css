@@ -1,11 +1,11 @@
 .post_detail img {
   width: 100%; 
-  height: 500px; 
-  object-fit: contain;
+  height: auto; 
+  aspect-ratio: 16 / 9; 
+  object-fit: cover; 
   border-radius: 8px;
   margin-bottom: 1em;
 }
-
 
 .post_detail h2 {
   font-size: 2.2em;
@@ -39,8 +39,7 @@
 /* Media Query para tablets */
 @media (max-width: 768px) {
   .post_detail img {
-    width: 100%; 
-    height: 300px;
+    aspect-ratio: 4 / 3; /* Ajuste a proporção para tablets */
   }
 
   .createdby {
@@ -54,8 +53,7 @@
 
 @media (max-width: 480px) {
   .post_detail img {
-    width: 100%; 
-    height: 300px;
+    aspect-ratio: 4 / 3; /* Ajuste a proporção para dispositivos móveis */
   }
 
   .createdby {

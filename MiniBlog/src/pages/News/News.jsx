@@ -10,6 +10,8 @@ const News = () => {
   const [query, setQuery] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [noResults, setNoResults] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [articlesPerPage] = useState(5);
 
   const fetchNews = async (searchQuery) => {
     setLoading(true);
@@ -18,6 +20,11 @@ const News = () => {
       const response = await fetch(
         `https://newsapi.org/v2/everything?q=${searchQuery}&language=pt&apiKey=92c9de3e70384490a70674fde6f63300`,
       );
+
+      if (!response.ok) {
+        throw new Error('Falha ao buscar notícias.');
+      }
+
       const data = await response.json();
       const filteredArticles = data.articles.filter(
         (article) => article.urlToImage,
@@ -30,24 +37,41 @@ const News = () => {
     } catch (error) {
       console.error('Erro ao buscar notícias:', error);
       setLoading(false);
+      setNoResults(true); // Exibe mensagem de erro ao usuário
     }
   };
 
   useEffect(() => {
-    fetchNews('noticias');
+    fetchNews('notícias');
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setQuery(searchInput);
+    setCurrentPage(1); // Resetar para a primeira página ao buscar novos artigos
     fetchNews(searchInput);
   };
 
   const handleClear = () => {
     setQuery('');
     setSearchInput('');
-    fetchNews('noticias');
+    setCurrentPage(1); // Resetar para a primeira página ao limpar a busca
+    fetchNews('notícias');
   };
+
+  // Calcular os artigos a serem exibidos
+  const indexOfLastArticle = currentPage * articlesPerPage;
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+  const currentArticles = articles.slice(
+    indexOfFirstArticle,
+    indexOfLastArticle,
+  );
+
+  // Função para mudar de página
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Determinar o número total de páginas
+  const totalPages = Math.ceil(articles.length / articlesPerPage);
 
   return (
     <div className={styles.news}>
@@ -80,10 +104,29 @@ const News = () => {
           {noResults ? (
             <p>Não foram encontradas notícias a partir da sua busca...</p>
           ) : (
-            articles.map((article, index) => (
+            currentArticles.map((article, index) => (
               <PostNews key={index} article={article} />
             ))
           )}
+        </div>
+      )}
+      {!loading && !noResults && (
+        <div className={styles.pagination}>
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Anterior
+          </button>
+          <span>
+            Página {currentPage} de {totalPages}
+          </span>
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Próxima
+          </button>
         </div>
       )}
     </div>

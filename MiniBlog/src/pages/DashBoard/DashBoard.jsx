@@ -36,7 +36,7 @@ const DashBoard = () => {
         // Exibindo mensagem quando não há posts
         <div className={styles.noposts}>
           <p>Não foram encontrados posts</p>
-          <Link to="/posts/create" className="btn">
+          <Link to="/posts/creat" className="btn">
             Criar primeiro Post
           </Link>
         </div>

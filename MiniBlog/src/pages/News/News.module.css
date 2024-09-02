@@ -36,6 +36,30 @@
   font-size: 1.5em;
   color: #1e90ff;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.pagination button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  margin: 0 0.5em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  align-self: center;
+}
 
 /* Media Query para tablets */
 @media (max-width: 768px) {
