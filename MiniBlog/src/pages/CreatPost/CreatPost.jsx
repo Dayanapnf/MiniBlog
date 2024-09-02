@@ -42,7 +42,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div className={styles.create_post}>
+    <div className={styles.creat_post}>
       <h2>Criar Novo Post</h2>
       <p>Escreva sobre o que quiser e compartilhe seu conhecimento!</p>
       <Card className={styles.full_width_card}>
