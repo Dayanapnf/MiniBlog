@@ -1,14 +1,23 @@
-
 <div align="center">
   <img src="https://github.com/user-attachments/assets/ae3411f0-2e32-408b-899e-d9e413a99f4b" alt="Ícone MiniBlog" />
 </div>
 
 # Projeto - MiniBlog
 
-
 ## Descrição
 
-Este é um projeto de blog desenvolvido usando **React**, **JavaScript**, **HTML**, **CSS**, **Firebase Database** e **Firebase Storage**. O projeto oferece uma interface interativa para listar, criar, editar e excluir posts, além de visualizar notícias usando a News API.
+Este é um projeto de blog desenvolvido usando **React**, **JavaScript**, **HTML**, **CSS**, **Firebase Database** e **Firebase Storage**. O projeto oferece uma interface interativa para listar, criar, editar e excluir posts, além de visualizar notícias usando a News API. O site tem dois comportamentos diferentes:
+
+1. **Usuário Não Logado**:
+   - Acesso para visualizar posts e notícias.
+   - Sem opções para criar, editar ou excluir posts.
+
+2. **Usuário Logado**:
+   - **Criar**: Adicione novos posts.
+   - **Visualizar o Dashboard**: Veja todos os seus posts.
+   - **Editar**: Modifique posts existentes.
+   - **Excluir**: Remova posts.
+   - **Visualizar**: Veja detalhes completos de um post.
 
 ## Funcionalidades
 
@@ -40,12 +49,12 @@ Aqui estão as cores usadas no projeto:
 ### Visualização das Cores
 
 - ![Preto](https://via.placeholder.com/30x30/000000/000000?text=%20&border=1&border-color=%23CCCCCC)
-- ![Branco](https://via.placeholder.com/30x30/FFFFFF/FFFFFF?text=%20&border=2&border-color=%23CCCCCC&border-width=2)
+- ![Branco](https://via.placeholder.com/30x30/FFFFFF/FFFFFF?text=%20&border=2&border-color=%23CCCCCC)
 - ![Cinza](https://via.placeholder.com/30x30/6c757d/6c757d?text=%20&border=1&border-color=%23CCCCCC)
 - ![Azul Claro](https://via.placeholder.com/30x30/edf3f6/edf3f6?text=%20&border=1&border-color=%23CCCCCC)
 
-  ## Telas
+## Telas
 
-  - ![Captura de tela 2024-09-02 153401](https://github.com/user-attachments/assets/ad307939-7ce0-4da6-bba0-75901178a40f)
-  - ![Captura de tela 2024-09-02 155822](https://github.com/user-attachments/assets/2c0d889a-9ff1-4d93-8933-12974b06952e)
-  - ![Captura de tela 2024-09-02 155831](https://github.com/user-attachments/assets/7cca6808-80ef-4176-8afb-672780668e5f)
+- ![Captura de tela 2024-09-02 153401](https://github.com/user-attachments/assets/ad307939-7ce0-4da6-bba0-75901178a40f)
+- ![Captura de tela 2024-09-02 155822](https://github.com/user-attachments/assets/2c0d889a-9ff1-4d93-8933-12974b06952e)
+- ![Captura de tela 2024-09-02 155831](https://github.com/user-attachments/assets/7cca6808-80ef-4176-8afb-672780668e5f)
