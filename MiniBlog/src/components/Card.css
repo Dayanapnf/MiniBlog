@@ -31,8 +31,9 @@
 .card .tags {
   margin-bottom: 1.2em;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+
+
 }
 
 .card .tags p {

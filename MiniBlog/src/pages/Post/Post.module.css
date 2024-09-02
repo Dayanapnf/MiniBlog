@@ -24,7 +24,10 @@
 
 .post_container .tags {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  max-width: 100%; 
+  gap: 0.5em;
 }
 
 .post_container .bodyText {
