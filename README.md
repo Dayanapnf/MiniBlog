@@ -1,60 +1,8 @@
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/ae3411f0-2e32-408b-899e-d9e413a99f4b" alt="Ícone MiniBlog" />
-</div>
+# React + Vite
 
-# Projeto - MiniBlog
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Descrição
+Currently, two official plugins are available:
 
-Este é um projeto de blog desenvolvido usando **React**, **JavaScript**, **HTML**, **CSS**, **Firebase Database** e **Firebase Storage**. O projeto oferece uma interface interativa para listar, criar, editar e excluir posts, além de visualizar notícias usando a News API. O site tem dois comportamentos diferentes:
-
-1. **Usuário Não Logado**:
-   - Acesso para visualizar posts e notícias.
-   - Sem opções para criar, editar ou excluir posts.
-
-2. **Usuário Logado**:
-   - **Novo Post**: Adicione novos posts.
-   - **Dashboard**: Veja todos os seus posts.
-     - **Editar**: Modifique posts existentes.
-     - **Excluir**: Remova posts.
-     - **Ver**: Veja detalhes completos de um post.
-
-## Funcionalidades
-
-- **Página Inicial**: Lista os posts mais recentes.
-- **Barra Lateral**: Exibe as 10 tags mais usadas. Clique em uma tag para ver os posts associados a ela.
-- **Filtragem de Posts**: Filtre posts por tags.
-- **CRUD de Posts**:
-  - **Criar**: Adicione novos posts.
-  - **Editar**: Modifique posts existentes.
-  - **Excluir**: Remova posts.
-  - **Visualizar**: Veja detalhes completos de um post.
-- **Página de Notícias**: Integra a [News API](https://newsapi.org/) para exibir notícias recentes. Possui funcionalidades de filtro para personalizar a busca.
-
-## Tecnologias Utilizadas
-
-- **Frontend**: React, JavaScript, HTML, CSS
-- **Backend**: Firebase (Database e Storage)
-- **APIs**: News API
-
-## Paleta de Cores
-
-Aqui estão as cores usadas no projeto:
-
-- **Preto**: `#000000`
-- **Branco**: `#FFFFFF`
-- **Cinza**: `#6c757d`
-- **Azul Claro**: `#edf3f6`
-
-### Visualização das Cores
-
-- ![Preto](https://via.placeholder.com/30x30/000000/000000?text=%20&border=1&border-color=%23CCCCCC)
-- ![Branco](https://via.placeholder.com/30x30/FFFFFF/FFFFFF?text=%20&border=2&border-color=%23CCCCCC)
-- ![Cinza](https://via.placeholder.com/30x30/6c757d/6c757d?text=%20&border=1&border-color=%23CCCCCC)
-- ![Azul Claro](https://via.placeholder.com/30x30/edf3f6/edf3f6?text=%20&border=1&border-color=%23CCCCCC)
-
-## Telas
-
-- ![Captura de tela 2024-09-02 153401](https://github.com/user-attachments/assets/ad307939-7ce0-4da6-bba0-75901178a40f)
-- ![Captura de tela 2024-09-02 155822](https://github.com/user-attachments/assets/2c0d889a-9ff1-4d93-8933-12974b06952e)
-- ![Captura de tela 2024-09-02 155831](https://github.com/user-attachments/assets/7cca6808-80ef-4176-8afb-672780668e5f)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
