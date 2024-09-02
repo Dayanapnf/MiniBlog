@@ -1,7 +1,60 @@
 .login {
+  padding: 20px;
   text-align: center;
 }
 
 .login p {
   color: #aaa;
+}
+
+.login h2 {
+  font-size: 2.2em;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.full_width_card {
+  display: block; 
+  text-align: left; 
+  max-width: 500px;
+}
+
+.full_width_card form {
+  width: 100%; /* Faz o formulário ocupar toda a largura do card */
+}
+
+.full_width_card label {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.full_width_card input {
+  width: 100%;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  box-sizing: border-box;
+}
+
+.button_container {
+  text-align: center; /* Centraliza os botões */
+}
+
+.button_container .btn {
+  margin-top: 1em;
+}
+
+.button_container p {
+  margin-top: 1em;
+}
+
+@media (max-width: 768px) {
+  .login h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .login h2 {
+    font-size: 1em;
+  }
 }

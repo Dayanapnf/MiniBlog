@@ -4,7 +4,22 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5em 2em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; 
+  z-index: 1001; 
+  box-sizing: border-box;
+  overflow: hidden;
 }
+
+
+.page-content {
+  margin-top: 4em; 
+  padding: 1em;
+}
+
 
 .brand {
   font-size: 1.2em;
@@ -12,8 +27,8 @@
   color: #000;
   position: relative;
   display: inline-block;
-  padding-bottom: 5px; /* Altura inicial da linha */
-  border-bottom: 2px solid transparent; /* Inicia sem linha */
+  padding-bottom: 5px; 
+  border-bottom: 2px solid transparent; 
   transition: padding-bottom 0.3s, border-color 0.3s;
 }
 
@@ -22,36 +37,36 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0%; /* Começa com largura zero */
+  width: 0%; 
   height: 2px;
-  background-color: #000; /* Cor da linha */
-  transition: width 0.4s; /* Transição da largura */
+  background-color: #000;
+  transition: width 0.4s; 
 }
+
 .brand:hover::after {
-  width: 100%; /* Expande a linha ao passar o mouse */
+  width: 100%; 
 }
+
 .brand span {
   font-weight: 900;
   text-transform: uppercase;
 }
 
-
 .links_list {
   display: flex;
   list-style: none;
-  
 }
 
 .links_list li {
   margin-right: 1em;
-
 }
 
 .links_list li a {
   text-decoration: none;
   color: #000;
-  position: relative; /* Adicionando posicionamento relativo ao link */
+  position: relative; 
 }
+
 .links_list li a::after {
   content: "";
   position: absolute;
@@ -78,4 +93,39 @@
 .active {
   border-bottom: 2px solid #000; 
   padding-bottom: 3px; 
+}
+.iconContainer {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 40px; 
+  height: 40px; 
+  margin-right: 8px; 
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .brand {
+    font-size: 0.8em;
+  }
+
+  .links_list  {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    font-size: 0.6em;
+  }
+
+  .links_list  {
+    font-size: 0.6em;
+  }
 }

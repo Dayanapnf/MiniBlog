@@ -1,4 +1,35 @@
 .container {
   min-height: 60vh;
   margin-bottom: 5em;
+  margin-top: 70px;
+}
+.scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none; /* Inicialmente escondido */
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.scrollToTopBtn:hover {
+  background-color: #555;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-bottom: 3em; 
+  }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+  .container {
+    margin-bottom: 2em; 
+  }
 }

@@ -5,4 +5,7 @@
   align-items: center;
   justify-content: center;
   background-color: #edf3f6;
+  position: relative; 
+  z-index: 1001; 
+  margin-top: 0; 
 }

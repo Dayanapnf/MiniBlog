@@ -2,15 +2,23 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css';
 import { useAuthentication } from '../hooks/useAuthentication';
-
 import { useAuthValue } from '../Context/AuthContext';
+import iconeMiniBlog from '../assets/icone_miniBlog.png';
+
 const NavBar = () => {
   const { user } = useAuthValue();
   const { logout } = useAuthentication();
   return (
     <nav className={styles.navbar}>
       <NavLink to="/" className={styles.brand}>
-        Mini <span>Blog</span>
+        <div className={styles.iconContainer}>
+          <img
+            src={iconeMiniBlog}
+            alt="Ícone MiniBlog"
+            className={styles.icon}
+          />
+          Mini<span>Blog</span>
+        </div>
       </NavLink>
       <ul className={styles.links_list}>
         <li>
@@ -19,6 +27,14 @@ const NavBar = () => {
             className={({ isActive }) => (isActive ? styles.active : '')}
           >
             Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/news"
+            className={({ isActive }) => (isActive ? styles.active : '')}
+          >
+            Notícias
           </NavLink>
         </li>
         {!user && (
@@ -69,6 +85,7 @@ const NavBar = () => {
             Sobre
           </NavLink>
         </li>
+
         {user && (
           <li>
             <button onClick={logout}>Sair</button>

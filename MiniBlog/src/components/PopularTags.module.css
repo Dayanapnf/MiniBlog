@@ -1,0 +1,45 @@
+.sidebar {
+  width: 240px;
+  padding: 10px;
+  background-color: #edf3f6;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 5px; 
+}
+
+.tags {
+  list-style: none;
+  padding: 2px;
+  font-size: 0.8em;
+}
+
+.tags li {
+  margin: 5px 0;
+  padding: 5px 10px;
+  margin: 2px;
+  background-color: #fff; 
+  border-radius: 5px;
+  display: inline-block;
+  word-wrap: break-word; 
+  white-space: normal; 
+  font-weight: bold; 
+  cursor: pointer;
+}
+
+.tag-large {
+  font-size: 2em;
+}
+
+.tag-medium {
+  font-size: 1.5em;
+}
+
+.tag-small {
+  font-size: 1em;
+}
+h3{
+  text-align: center;
+}

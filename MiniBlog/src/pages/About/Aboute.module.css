@@ -4,9 +4,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
   
 }
-
+.about h2 {
+  font-size: 2.2em;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
 .about p {
   color: #aaa;
   margin-bottom: 2em;
@@ -17,4 +22,15 @@
   display: block;
   margin-top: 15px;
   padding: 10px 15px;
+}
+@media (max-width: 768px) {
+  .about h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .about h2 {
+    font-size: 1em;
+  }
 }
