@@ -14,10 +14,10 @@ Este é um projeto de blog desenvolvido usando **React**, **JavaScript**, **HTML
 
 2. **Usuário Logado**:
    - **Criar**: Adicione novos posts.
-   - **Visualizar o Dashboard**: Veja todos os seus posts.
-   - **Editar**: Modifique posts existentes.
-   - **Excluir**: Remova posts.
-   - **Visualizar**: Veja detalhes completos de um post.
+   - **Dashboard**: Veja todos os seus posts.
+     - **Editar**: Modifique posts existentes.
+     - **Excluir**: Remova posts.
+     - **Visualizar**: Veja detalhes completos de um post.
 
 ## Funcionalidades
 
