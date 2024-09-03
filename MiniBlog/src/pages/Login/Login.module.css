@@ -4,7 +4,7 @@
 }
 
 .login p {
-  color: #aaa;
+  color: #8c989e;
 }
 
 .login h2 {
@@ -20,7 +20,7 @@
 }
 
 .full_width_card form {
-  width: 100%; /* Faz o formulário ocupar toda a largura do card */
+  width: 100%; 
 }
 
 .full_width_card label {
@@ -36,7 +36,7 @@
 }
 
 .button_container {
-  text-align: center; /* Centraliza os botões */
+  text-align: center; 
 }
 
 .button_container .btn {

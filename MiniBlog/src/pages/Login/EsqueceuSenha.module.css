@@ -4,7 +4,7 @@
 }
 
 .resetPassword p {
-  color: #aaa;
+  color: #8c989e;
 }
 
 .resetPassword h2 {
@@ -36,7 +36,7 @@
 }
 
 .button_container {
-  text-align: center; /* Centraliza os botões */
+  text-align: center; 
 }
 
 .button_container .btn {
