@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './DashBoard.module.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuthValue } from '../../Context/AuthContext';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { useDeleteDocument } from '../../hooks/useDeleteDocument';
 
 const DashBoard = () => {
+  const navigate = useNavigate();
+
   // Obtendo o usuário autenticado
   const { user } = useAuthValue();
   const uid = user.uid;
@@ -36,9 +38,9 @@ const DashBoard = () => {
         // Exibindo mensagem quando não há posts
         <div className={styles.noposts}>
           <p>Não foram encontrados posts</p>
-          <Link to="/posts/creat" className="btn">
+          <button onClick={() => navigate('/posts/create')} className="btn">
             Criar primeiro Post
-          </Link>
+          </button>
         </div>
       ) : (
         <>
@@ -53,18 +55,21 @@ const DashBoard = () => {
               <div className={styles.post_row} key={post.id}>
                 <p>{post.title}</p>
                 <div className={styles.actions}>
-                  <Link to={`/posts/${post.id}`} className="btn btn-outline">
+                  <button
+                    onClick={() => navigate(`/posts/${post.id}`)}
+                    className="btn dash"
+                  >
                     Ver
-                  </Link>
-                  <Link
-                    to={`/posts/edit/${post.id}`}
-                    className="btn btn-outline"
+                  </button>
+                  <button
+                    onClick={() => navigate(`/posts/edit/${post.id}`)}
+                    className="btn dash"
                   >
                     Editar
-                  </Link>
+                  </button>
                   <button
                     onClick={() => handleDelete(post.id)}
-                    className="btn btn-outline btn-danger"
+                    className="btn dash btn-danger"
                   >
                     Excluir
                   </button>

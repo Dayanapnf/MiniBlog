@@ -5,7 +5,6 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-
 }
 
 .dashboard h2 {
@@ -38,37 +37,73 @@
   border-bottom: 2px solid #8c989e;
   width: 80%;
   padding: 10px;
+  text-align: left;
 }
 
 .post_row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
   border-bottom: 1px solid #8c989e;
   width: 80%;
   padding: 10px;
+  flex-wrap: wrap; 
+  
 }
 
 .post_row p {
   color: #000;
+  margin: 0;
+  padding-bottom: 20px;
+  flex: 1;
+  word-wrap: break-word; 
+  white-space: normal; 
+  justify-content: left;
+  align-items: center;
+  text-align: start;
+  margin-right: 10px;
 }
 
-.post_row button,
-.post_row a {
-  margin: 0 5px;
-  height: 30px;
-  width: 100px;
+.actions {
+  display: flex;
+  gap: 2px;
+}
+
+.actions button,
+.actions a {
+  height: 25px;
   font-size: 0.7em;
 }
+
 /* Media Query para tablets */
 @media (max-width: 768px) {
   .dashboard h2 {
     font-size: 1.5em;
+  }
+  .actions {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .actions button,
+  .actions a {
+    width: 100%;
+    margin-bottom: 5px;
   }
 }
 
 @media (max-width: 480px) {
   .dashboard h2 {
     font-size: 1em;
+  }
+  .actions {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .actions button,
+  .actions a {
+    width: 100%;
+    margin-bottom: 5px;
   }
 }
