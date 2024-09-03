@@ -84,7 +84,7 @@ textarea::placeholder {
   text-align: center;
   cursor: pointer;
   border-radius: 10px;
-  width: 100px;
+  width: auto;
   font-weight: bold;
   border: none;
   padding: 10px 15px;
