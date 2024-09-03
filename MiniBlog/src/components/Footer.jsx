@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.css';
+
+// Componente Footer que exibe informações no rodapé da página
 const Footer = () => {
   return (
     <footer className={styles.footer}>
@@ -9,4 +11,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer; //

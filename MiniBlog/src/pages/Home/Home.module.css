@@ -16,7 +16,7 @@
 }
 
 .content {
-  margin-left: 220px; 
+  margin-left: 250px; 
   flex-grow: 1;
   padding-bottom: 250px;
 }
@@ -66,8 +66,8 @@
 }
 
 /* Media Query para tablets */
-@media (max-width: 768px) {
-  .home h2 {
+@media (max-width: 728px) {
+  .content h2 {
     font-size: 1.5em;
   }
   .sidebar {
@@ -80,7 +80,7 @@
 
 /* Media Query para dispositivos móveis */
 @media (max-width: 480px) {
-  .home h2 {
+  .content h2 {
     font-size: 1em;
   } 
   .sidebar {

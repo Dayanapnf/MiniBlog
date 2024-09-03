@@ -6,45 +6,49 @@ import {
   updateProfile,
   signOut,
 } from 'firebase/auth';
-
 import { useState, useEffect } from 'react';
 
+// Hook personalizado para gerenciar autenticação de usuários
 export const useAuthentication = () => {
+  // Estado para gerenciar erros
   const [error, setError] = useState(null);
+  // Estado para gerenciar o carregamento de operações assíncronas
   const [loading, setLoading] = useState(null);
-
-  // deal with memory leak
+  // Estado para evitar vazamento de memória (componente desmontado)
   const [cancelled, setCancelled] = useState(false);
 
+  // Inicializa o objeto de autenticação do Firebase
   const auth = getAuth();
 
+  // Função para verificar se a operação deve ser cancelada
   function checkIfIsCancelled() {
     if (cancelled) {
-      return;
+      return; // Sai da função se o componente estiver desmontado
     }
   }
 
+  // Função assíncrona para criar um novo usuário
   const createUser = async (data) => {
-    checkIfIsCancelled();
+    checkIfIsCancelled(); // Evita continuar se o componente estiver desmontado
 
-    setLoading(true);
+    setLoading(true); // Indica que a operação está em andamento
 
     try {
+      // Cria um usuário com e-mail e senha usando Firebase Auth
       const { user } = await createUserWithEmailAndPassword(
         auth,
         data.email,
         data.password,
       );
 
+      // Atualiza o perfil do usuário com o nome fornecido
       await updateProfile(user, {
         displayName: data.displayName,
       });
 
-      return user;
+      return user; // Retorna o usuário criado com sucesso
     } catch (error) {
-      console.log(error.message);
-      console.log(typeof error.message);
-
+      // Tratamento de erros específicos com base na mensagem de erro retornada
       let systemErrorMessage;
 
       if (error.message.includes('Password')) {
@@ -55,53 +59,51 @@ export const useAuthentication = () => {
         systemErrorMessage = 'Ocorreu um erro, por favor tenta mais tarde.';
       }
 
+      // Define o estado de erro com a mensagem apropriada
       setError(systemErrorMessage);
     }
 
-    setLoading(false);
+    setLoading(false); // Finaliza o estado de carregamento
   };
 
+  // Função para deslogar o usuário
   const logout = () => {
-    checkIfIsCancelled();
+    checkIfIsCancelled(); // Verifica o estado antes de prosseguir
 
-    signOut(auth);
+    signOut(auth); // Desloga o usuário do Firebase Auth
   };
 
+  // Função assíncrona para logar o usuário
   const login = async (data) => {
-    checkIfIsCancelled();
+    checkIfIsCancelled(); // Verifica o estado de cancelamento
 
-    setLoading(true);
-    setError(false);
+    setLoading(true); // Define o estado de carregamento
+    setError(false); // Reseta o estado de erro
 
     try {
+      // Loga o usuário com e-mail e senha
       await signInWithEmailAndPassword(auth, data.email, data.password);
     } catch (error) {
-      console.log(error.message);
-      console.log(typeof error.message);
-      console.log(error.message.includes('user-not'));
-
       let systemErrorMessage;
-      console.log(error);
+      // Identifica e define mensagens de erro específicas para o usuário
       if (error.message.includes('auth/invalid-credential')) {
         systemErrorMessage = 'Dados incorretos';
       } else {
         systemErrorMessage = 'Ocorreu um erro, por favor tenta mais tarde.';
       }
 
-      console.log(systemErrorMessage);
-
-      setError(systemErrorMessage);
+      setError(systemErrorMessage); // Atualiza o estado de erro
     }
 
-    console.log(error);
-
-    setLoading(false);
+    setLoading(false); // Finaliza o estado de carregamento
   };
 
+  // useEffect para garantir que setCancelled é definido como true quando o componente desmontar
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
 
+  // Retorna as funções e estados relevantes para uso no componente
   return {
     auth,
     createUser,
