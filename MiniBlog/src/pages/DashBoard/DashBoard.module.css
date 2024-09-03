@@ -15,7 +15,7 @@
 }
 
 .dashboard p {
-  color: #aaa;
+  color: #8c989e;
   margin-bottom: 1em;
 }
 
@@ -35,7 +35,7 @@
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #8c989e;
   width: 80%;
   padding: 10px;
 }
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #8c989e;
   width: 80%;
   padding: 10px;
 }

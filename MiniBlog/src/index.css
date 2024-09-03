@@ -17,7 +17,7 @@ body{
 
 input::placeholder, textarea{
   font-family: sans-serif;
-  color: #AAA;
+  color: #8c989e;
 }
 
 input:focus, 
@@ -65,7 +65,7 @@ input,
 textarea {
   box-sizing: border-box;
   border: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #8c989e;
   padding: 0.8em 0em;
   background-color: transparent;
   color: #000;
@@ -75,7 +75,7 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: #aaa;
+  color: #8c989e;
 }
 
 .btn {
