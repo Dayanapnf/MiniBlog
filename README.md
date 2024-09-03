@@ -43,16 +43,16 @@ Aqui estão as cores usadas no projeto:
 
 - **Preto**: `#000000`
 - **Cinza**: `#8c989e`
-- **Azul Claro**: `#f6fcff`
 - **Azul Frio e Acinzentado**: `#f0f8ff`
+- **Azul Claro**: `#f6fcff`
 -  **Branco**: `#FFFFFF
 
 ### Visualização das Cores
 
 - ![Preto](https://via.placeholder.com/30x30/000000/000000?text=%20&border=1&border-color=%23CCCCCC) `#000000`
 - ![Cinza](https://via.placeholder.com/30x30/8c989e/8c989e?text=%20&border=1&border-color=%23CCCCCC) `#8c989e`
-- ![Azul Claro](https://via.placeholder.com/30x30/f6fcff/f6fcff?text=%20&border=1&border-color=%23CCCCCC) `#f6fcff`
 - ![Azul Frio e Acinzentado](https://via.placeholder.com/30x30/f0f8ff/f0f8ff?text=%20&border=1&border-color=%23CCCCCC) `#f0f8ff`
+- ![Azul Claro](https://via.placeholder.com/30x30/f6fcff/f6fcff?text=%20&border=1&border-color=%23CCCCCC) `#f6fcff`
 - ![Branco](https://via.placeholder.com/30x30/FFFFFF/FFFFFF?text=%20&border=2&border-color=%23CCCCCC) `#FFFFFF`
 
 
