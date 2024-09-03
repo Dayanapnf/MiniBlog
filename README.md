@@ -43,15 +43,18 @@ Aqui estão as cores usadas no projeto:
 
 - **Preto**: `#000000`
 - **Branco**: `#FFFFFF`
-- **Cinza**: `#6c757d`
-- **Azul Claro**: `#edf3f6`
+- **Cinza**: `#8c989e`
+- **Azul Claro**: `#f6fcff`
+- **Azul Frio e Acinzentado**: `#f0f8ff`
 
 ### Visualização das Cores
 
-- ![Preto](https://via.placeholder.com/30x30/000000/000000?text=%20&border=1&border-color=%23CCCCCC)
-- ![Branco](https://via.placeholder.com/30x30/FFFFFF/FFFFFF?text=%20&border=2&border-color=%23CCCCCC)
-- ![Cinza](https://via.placeholder.com/30x30/6c757d/6c757d?text=%20&border=1&border-color=%23CCCCCC)
-- ![Azul Claro](https://via.placeholder.com/30x30/edf3f6/edf3f6?text=%20&border=1&border-color=%23CCCCCC)
+- ![Preto](https://via.placeholder.com/30x30/000000/000000?text=%20&border=1&border-color=%23CCCCCC) `#000000`
+- ![Branco](https://via.placeholder.com/30x30/FFFFFF/FFFFFF?text=%20&border=2&border-color=%23CCCCCC) `#FFFFFF`
+- ![Cinza](https://via.placeholder.com/30x30/8c989e/8c989e?text=%20&border=1&border-color=%23CCCCCC) `#8c989e`
+- ![Azul Claro](https://via.placeholder.com/30x30/f6fcff/f6fcff?text=%20&border=1&border-color=%23CCCCCC) `#f6fcff`
+- ![Azul Frio e Acinzentado](https://via.placeholder.com/30x30/f0f8ff/f0f8ff?text=%20&border=1&border-color=%23CCCCCC) `#f0f8ff`
+
 
 ## Telas
 
