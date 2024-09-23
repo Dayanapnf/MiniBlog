@@ -15,7 +15,7 @@ const About = () => {
         postagem de conteúdo. O blog permite que os usuários criem, visualizem,
         editem e excluam postagens de forma prática e intuitiva.
       </p>
-      <Link to="/posts/creat" className="btn">
+      <Link to="/posts/create" className="btn">
         Criar post
       </Link>
     </div>
