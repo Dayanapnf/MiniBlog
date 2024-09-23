@@ -95,8 +95,8 @@ const CreatePost = () => {
               value={tags}
             />
           </label>
-          <div>
-            <button className="btn" disabled={isSubmitting}>
+          <div className={styles.button_container}>
+            <button className=" btn " disabled={isSubmitting}>
               {isSubmitting ? 'Criando...' : 'Criar Post'}
             </button>
             {formError && <p className="error">{formError}</p>}
