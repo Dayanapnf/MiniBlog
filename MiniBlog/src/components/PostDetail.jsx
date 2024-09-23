@@ -18,12 +18,16 @@ const PostDetail = ({ post }) => {
 
       {/* Tags associadas ao post */}
       <div className={styles.tags}>
-        {post.tags.map((tag) => (
-          <p key={tag}>
-            <span>#</span>
-            {tag}
-          </p>
-        ))}
+        {Array.isArray(post.tags) && post.tags.length > 0 ? (
+          post.tags.map((tag) => (
+            <p key={tag}>
+              <span>#</span>
+              {tag}
+            </p>
+          ))
+        ) : (
+          <p>Nenhuma tag disponível</p> // Mensagem padrão se não houver tags
+        )}
       </div>
 
       {/* Link para ler o post completo */}

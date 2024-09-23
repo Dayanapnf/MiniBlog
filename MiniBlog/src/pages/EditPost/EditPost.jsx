@@ -1,11 +1,14 @@
 import styles from './EditPost.module.css';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useEditPost from '../../hooks/useEditPost';
 import Card from '../../components/Card';
 
 const EditPost = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const {
+    post,
     title,
     setTitle,
     imageType,
@@ -21,9 +24,8 @@ const EditPost = () => {
     formError,
     isEditing,
     handleSubmit,
-    response,
     textareaRef,
-    post,
+    response,
   } = useEditPost(id);
 
   return (

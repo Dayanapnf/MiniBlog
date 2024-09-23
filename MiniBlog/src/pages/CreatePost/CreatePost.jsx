@@ -1,7 +1,5 @@
 import styles from './CreatePost.module.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuthValue } from '../../Context/AuthContext';
 import useCreatePost from '../../hooks/useCreatePost';
 import Card from '../../components/Card';
 
@@ -12,25 +10,12 @@ const CreatePost = () => {
   const [file, setFile] = useState(null);
   const [body, setBody] = useState('');
   const [tags, setTags] = useState('');
-  const { user } = useAuthValue();
-  const navigate = useNavigate();
-  const { createPost, isSubmitting, formError, uploadProgress } =
-    useCreatePost();
+
+  const { createPost, formError, isSubmitting } = useCreatePost(); // Usa o hook
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const tagsArray = tags.split(',').map((tag) => tag.trim().toLowerCase());
-    const postData = {
-      title,
-      body,
-      tags: tagsArray,
-      uid: user.uid,
-      createdBy: user.displayName,
-    };
-
-    createPost(postData, imageType, file);
-    navigate('/'); // Redireciona para a página inicial após a criação do post
+    createPost(title, imageType, image, file, body, tags);
   };
 
   return (
@@ -43,7 +28,9 @@ const CreatePost = () => {
             <span>Título:</span>
             <input
               type="text"
+              name="title"
               required
+              placeholder="Pense num bom título..."
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
@@ -51,6 +38,7 @@ const CreatePost = () => {
           <label>
             <span>Tipo de Imagem:</span>
             <select
+              name="imageType"
               onChange={(e) => setImageType(e.target.value)}
               value={imageType}
             >
@@ -63,6 +51,8 @@ const CreatePost = () => {
               <span>URL da imagem:</span>
               <input
                 type="text"
+                name="image"
+                placeholder="Insira uma imagem que representa seu post"
                 onChange={(e) => setImage(e.target.value)}
                 value={image}
               />
@@ -73,6 +63,7 @@ const CreatePost = () => {
               <span>Arquivo da imagem:</span>
               <input
                 type="file"
+                name="file"
                 accept="image/*"
                 onChange={(e) => setFile(e.target.files[0])}
               />
@@ -81,22 +72,27 @@ const CreatePost = () => {
           <label>
             <span>Conteúdo:</span>
             <textarea
+              name="body"
               required
+              placeholder="Insira o conteúdo do post"
               onChange={(e) => setBody(e.target.value)}
               value={body}
+              className={styles.textarea}
             ></textarea>
           </label>
           <label>
             <span>Tags:</span>
             <input
               type="text"
+              name="tags"
               required
+              placeholder="Insira as tags separadas por vírgula"
               onChange={(e) => setTags(e.target.value)}
               value={tags}
             />
           </label>
           <div className={styles.button_container}>
-            <button className=" btn " disabled={isSubmitting}>
+            <button className="btn" disabled={isSubmitting}>
               {isSubmitting ? 'Criando...' : 'Criar Post'}
             </button>
             {formError && <p className="error">{formError}</p>}

@@ -1,13 +1,15 @@
-// hooks/useEditPost.js
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useFetchDocument } from './useFetchDocument';
 import { useUpdateDocument } from './useUpdateDocument';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { storage } from '../firebase/config';
+import { useNavigate } from 'react-router-dom'; // Adicione esta linha
 
 const useEditPost = (id) => {
+  const navigate = useNavigate(); // Adicione esta linha
   const { document: post } = useFetchDocument('posts', id);
+  const { updateDocument, response } = useUpdateDocument('posts');
+
   const [title, setTitle] = useState('');
   const [imageType, setImageType] = useState('url');
   const [image, setImage] = useState('');
@@ -16,16 +18,7 @@ const useEditPost = (id) => {
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState('');
   const [isEditing, setIsEditing] = useState(false);
-  const { updateDocument, response } = useUpdateDocument('posts');
-  const navigate = useNavigate();
   const textareaRef = useRef(null);
-
-  const adjustTextareaHeight = () => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-    }
-  };
 
   useEffect(() => {
     if (post) {
@@ -37,9 +30,28 @@ const useEditPost = (id) => {
     }
   }, [post]);
 
+  const adjustTextareaHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  };
+
   const handleBodyChange = (e) => {
     setBody(e.target.value);
     adjustTextareaHeight();
+  };
+
+  const updatePost = async (imageUrl) => {
+    const tagsArray = tags.split(',').map((tag) => tag.trim().toLowerCase());
+    const data = {
+      title,
+      image: imageUrl,
+      body,
+      tags: tagsArray,
+    };
+
+    await updateDocument(id, data);
   };
 
   const handleSubmit = async (e) => {
@@ -67,44 +79,34 @@ const useEditPost = (id) => {
       const fileRef = ref(storage, `images/${file.name}`);
       const uploadTask = uploadBytesResumable(fileRef, file);
 
-      uploadTask.on(
-        'state_changed',
-        null,
-        (error) => {
-          setFormError('Erro ao fazer o upload da imagem.');
-          console.error('Upload Error:', error);
-          setIsEditing(false);
-        },
-        async () => {
-          imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
-          updatePost(imageUrl);
-        },
-      );
-      return;
+      await new Promise((resolve, reject) => {
+        uploadTask.on(
+          'state_changed',
+          null,
+          (error) => {
+            setFormError('Erro ao fazer o upload da imagem.');
+            console.error('Upload Error:', error);
+            setIsEditing(false);
+            reject(error);
+          },
+          async () => {
+            imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
+            resolve();
+          },
+        );
+      });
     } else {
       setFormError('Tipo de imagem desconhecido.');
       setIsEditing(false);
       return;
     }
 
-    updatePost(imageUrl);
-  };
-
-  const updatePost = (imageUrl) => {
-    const tagsArray = tags.split(',').map((tag) => tag.trim().toLowerCase());
-
-    const data = {
-      title,
-      image: imageUrl,
-      body,
-      tags: tagsArray,
-    };
-
-    updateDocument(id, data);
-    navigate(`/posts/${id}`);
+    await updatePost(imageUrl);
+    navigate(`/posts/${id}`); // Agora deve funcionar
   };
 
   return {
+    post,
     title,
     setTitle,
     imageType,
@@ -114,16 +116,14 @@ const useEditPost = (id) => {
     file,
     setFile,
     body,
-    setBody,
+    handleBodyChange,
     tags,
     setTags,
     formError,
     isEditing,
-    handleBodyChange,
     handleSubmit,
-    response,
     textareaRef,
-    post,
+    response,
   };
 };
 
