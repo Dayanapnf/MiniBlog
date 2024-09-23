@@ -1,16 +1,16 @@
-.creat_post {
+.create_post {
   padding: 20px;
   text-align: center;
   justify-content: center;
 }
 
-.creat_post h2 {
+.create_post h2 {
   font-size: 2.2em;
   margin-bottom: 0.5em;
   text-align: center;
 }
 
-.creat_post p {
+.create_post p {
   color: #8c989e;
   margin-bottom: 2em;
 }
@@ -64,13 +64,13 @@
 
 /* Media Query para tablets */
 @media (max-width: 768px) {
-  .creat_post h2 {
+  .create_post h2 {
     font-size: 1.5em;
   }
 }
 
 @media (max-width: 480px) {
-  .creat_post h2 {
+  .create_post h2 {
     font-size: 1em;
   }
 }

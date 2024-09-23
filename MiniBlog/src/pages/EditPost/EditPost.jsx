@@ -1,116 +1,30 @@
 import styles from './EditPost.module.css';
-import { useState, useEffect, useRef } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useAuthValue } from '../../Context/AuthContext';
-import { useFetchDocument } from '../../hooks/useFetchDocument';
-import { useUpdateDocument } from '../../hooks/useUpdateDocument';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../firebase/config';
-import Card from '../../components/Card'; // Importa o componente Card
+import { useParams } from 'react-router-dom';
+import useEditPost from '../../hooks/useEditPost';
+import Card from '../../components/Card';
 
 const EditPost = () => {
   const { id } = useParams();
-  const { document: post } = useFetchDocument('posts', id);
-
-  const [title, setTitle] = useState('');
-  const [imageType, setImageType] = useState('url'); // Estado para o tipo de imagem
-  const [image, setImage] = useState('');
-  const [file, setFile] = useState(null); // Estado para o arquivo
-  const [body, setBody] = useState('');
-  const [tags, setTags] = useState([]);
-  const [formError, setFormError] = useState('');
-
-  const { user } = useAuthValue();
-  const navigate = useNavigate();
-  const { updateDocument, response } = useUpdateDocument('posts');
-
-  const textareaRef = useRef(null);
-
-  // Ajuste da altura do textarea
-  const adjustTextareaHeight = () => {
-    if (textareaRef.current) {
-      // Reseta para calcular o scrollHeight corretamente
-      textareaRef.current.style.height = 'auto';
-      // Define a altura para acomodar o conteúdo completo
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-    }
-  };
-
-  // UseEffect para carregar o post e ajustar a altura inicialmente
-  useEffect(() => {
-    if (post) {
-      setTitle(post.title);
-      setImage(post.image);
-      setBody(post.body);
-      setTags(post.tags.join(', '));
-      adjustTextareaHeight(); // Ajuste inicial ao carregar o post
-    }
-  }, [post]);
-
-  // Função para mudar o conteúdo do textarea
-  const handleBodyChange = (e) => {
-    setBody(e.target.value);
-    adjustTextareaHeight(); // Ajusta a altura ao mudar o conteúdo
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormError('');
-
-    // Verificando se o tipo de imagem está correto
-    let imageUrl = '';
-    if (imageType === 'url') {
-      try {
-        new URL(image);
-        imageUrl = image;
-      } catch (error) {
-        setFormError('A imagem precisa ser uma URL válida.');
-        return;
-      }
-    } else if (imageType === 'upload') {
-      if (!file) {
-        setFormError('Por favor, selecione um arquivo para upload.');
-        return;
-      }
-
-      const fileRef = ref(storage, `images/${file.name}`);
-      const uploadTask = uploadBytesResumable(fileRef, file);
-
-      uploadTask.on(
-        'state_changed',
-        null,
-        (error) => {
-          setFormError('Erro ao fazer o upload da imagem.');
-          console.error('Upload Error:', error);
-        },
-        async () => {
-          imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
-          updatePost(imageUrl);
-        },
-      );
-      return;
-    } else {
-      setFormError('Tipo de imagem desconhecido.');
-      return;
-    }
-
-    // Atualizar post com a URL da imagem
-    updatePost(imageUrl);
-  };
-
-  const updatePost = (imageUrl) => {
-    const tagsArray = tags.split(',').map((tag) => tag.trim().toLowerCase());
-
-    const data = {
-      title,
-      image: imageUrl,
-      body,
-      tags: tagsArray,
-    };
-
-    updateDocument(id, data);
-    navigate('/dashboard');
-  };
+  const {
+    title,
+    setTitle,
+    imageType,
+    setImageType,
+    image,
+    setImage,
+    file,
+    setFile,
+    body,
+    handleBodyChange,
+    tags,
+    setTags,
+    formError,
+    isEditing,
+    handleSubmit,
+    response,
+    textareaRef,
+    post,
+  } = useEditPost(id);
 
   return (
     <div className={styles.edit_post}>
@@ -202,12 +116,9 @@ const EditPost = () => {
                 />
               </label>
               <div className={styles.button_container}>
-                {!response.loading && <button className="btn">Editar</button>}
-                {response.loading && (
-                  <button className="btn" disabled>
-                    Aguarde...
-                  </button>
-                )}
+                <button className="btn" disabled={isEditing}>
+                  {isEditing ? 'Editando...' : 'Editar'}
+                </button>
                 {(response.error || formError) && (
                   <p className="error">{response.error || formError}</p>
                 )}

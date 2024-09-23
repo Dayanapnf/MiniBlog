@@ -9,7 +9,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
-import CreatPost from './pages/CreatPost/CreatPost';
+import CreatePost from './pages/CreatePost/CreatePost';
 import DashBoard from './pages/DashBoard/DashBoard';
 import Search from './pages/Search/Search';
 import EditPost from './pages/EditPost/EditPost';
@@ -85,8 +85,8 @@ function App() {
                 element={user ? <EditPost /> : <Navigate to="/login" />}
               />
               <Route
-                path="/posts/creat"
-                element={user ? <CreatPost /> : <Navigate to="/login" />}
+                path="/posts/create"
+                element={user ? <CreatePost /> : <Navigate to="/login" />}
               />
               <Route
                 path="/dashboard"
